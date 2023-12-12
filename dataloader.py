@@ -37,14 +37,14 @@ def create_dataloaders(dataset_cfg:tp.Dict):
             dataset_train,
             batch_size=dataset_cfg["batch_size"],
             collate_fn=dataset_train.collater,
-            num_workers=4
+            num_workers=2
         )
     
     dataloader_eval = DataLoader(
             dataset_eval,
             batch_size=dataset_cfg["batch_size"],
             collate_fn=dataset_eval.collater,
-            num_workers=4
+            num_workers=2
         )
     
     return dataloader_train, dataloader_eval

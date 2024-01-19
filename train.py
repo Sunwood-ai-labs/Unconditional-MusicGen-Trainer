@@ -193,7 +193,7 @@ def main(
     #                                              verbose=True)
     criterion = nn.CrossEntropyLoss()
 
-    save_path = "models/"
+    save_path = config["save_path"]
     os.makedirs(save_path, exist_ok=True)
 
     best_loss = 10

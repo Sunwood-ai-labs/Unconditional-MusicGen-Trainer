@@ -177,6 +177,9 @@ def main(
 
     dataloader_train, dataloader_eval = create_dataloaders(dataset_cfg)
     model = MusicGen.get_pretrained(config["model"])
+    if resume_model_path:
+        model.lm.load_state_dict(torch.load(config["resume_model_path"]))
+
     model.lm = model.lm.to(torch.float32)  # important
 
     scaler = torch.cuda.amp.GradScaler()
